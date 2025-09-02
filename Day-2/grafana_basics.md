@@ -14,60 +14,28 @@ Extensible with plugins
 ------------------------------------------------------------------------
 
 ## 2. Grafana Architecture
-## 2. Grafana Architecture
 
-To understand Grafana’s role, it helps to see it in the broader monitoring ecosystem where it often works alongside **Prometheus**.
-
-![Prometheus Architecture](prometheus-architecture.svg)
-
-### 🔹 Key Components
-
-1. **Grafana Server**
-   - Core backend service written in **Go**.
-   - Provides:
-     - Web-based **UI** for dashboards and configuration.
-     - **HTTP API** for automation and integrations.
-   - Handles authentication, authorization, and user management.
-
-2. **Data Sources**
-   - Grafana **does not store metrics by itself**.  
-   - Instead, it queries data from various external systems:
-     - **Prometheus** – time-series metrics.
-     - **Loki** – logs aggregation.
-     - **Tempo** – distributed traces.
-     - **Elasticsearch** – logs & search.
-     - **SQL Databases** – MySQL, PostgreSQL.
-   - Each data source is configured independently.
-
-3. **Dashboards**
-   - The main visualization layer where metrics are displayed.
-   - Supports multiple panel types:
-     - Graphs, time-series charts
-     - Tables, gauges, heatmaps, pie charts
-   - Features:
-     - **Templating** – dynamic dashboards with variables.
-     - **Sharing** – export/import, snapshots, JSON models.
-
-4. **Alerting**
-   - Grafana has a **unified alerting system**.
-   - Alerts are defined at the panel or query level.
-   - Key capabilities:
-     - **Rule evaluation** against metrics.
-     - **Notification channels**: Slack, Email, PagerDuty, Opsgenie, Webhooks.
-     - **Silencing & grouping** to reduce noise.
-
-5. **Plugins**
-   - Extend Grafana’s functionality.
-   - Types:
-     - **Data source plugins** (new backends).
-     - **Panel plugins** (new visualization types).
-     - **Apps** (bundle of dashboards, data sources, panels).
-   - Community-driven and enterprise-grade plugins available.
-
----
-
-✅ Grafana becomes the **visual front-end** for Prometheus and other observability tools, giving teams actionable insights from metrics, logs, and traces.
-
+1.  **Grafana Server**
+    -   Core component that serves the web UI and APIs.
+    -   Written in Go.
+2.  **Data Sources**
+    -   Grafana doesn't store metrics; it queries external sources like:
+        -   Prometheus
+        -   Loki (logs)
+        -   Tempo (traces)
+        -   ElasticSearch
+        -   MySQL/PostgreSQL
+3.  **Dashboards**
+    -   Visualization layer where metrics are displayed.
+    -   Supports graphs, tables, heatmaps, gauges, etc.
+    -   Dashboards can be shared and templated.
+4.  **Alerting**
+    -   Integrated alerting system.
+    -   Alerts can be triggered based on queries.
+    -   Notifications sent via Slack, Email, PagerDuty, Opsgenie, etc.
+5.  **Plugins**
+    -   Extensions for panels, data sources, and apps.
+    -   Community and enterprise plugins available.
 
 ------------------------------------------------------------------------
 
